@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+body::before{
+    content: "";
+    background-image: url(assets/bg.png), url(assets/ceramics-mosaic-tiles-series-seamless-texture-background_773315-3532.jpg) ;
+    background-size: 1000px, 200px;
+    background-position: 140px 100px, center;
+    background-repeat: no-repeat, repeat;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    opacity: 0.8;
+}
+.container{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.container .slider-container .slider{
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    top: 10%;
+    left: calc(50% - 75px);
+    transform-style: preserve-3d;
+    z-index: 2;
+    transform: perspective(1000px)
+    ;
+    animation: rotation 20s linear infinite;
+}
+@keyframes rotation {
+    from{
+        transform: perspective(1000px) rotateX(-15deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(1000px) rotateX(-15deg) rotateY(360deg);
+    }
+    
+}
+.container .slider .item{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 0; 
+    transform: 
+    rotateY(calc((var(--position) - 1) * (360/var(--position-quantity) ) * 1deg))
+    translateZ(400px)
+    ;
+    animation: opacity 2s ease-in 1, zoom 4s ease-in-out alternate infinite;
+    
+}
+@keyframes opacity {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes zoom {
+    from{
+        transform: 
+        rotateY(calc((var(--position) - 1) * (360/var(--position-quantity) ) * 1deg))
+        translateZ(400px)
+        ;
+    }
+    to{        
+        transform: 
+        rotateY(calc((var(--position) - 1) * (360/var(--position-quantity) ) * 1deg))
+        translateZ(500px)
+        ;
+    }
+}
+.container .slider .item img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+.container .content{
+    position: absolute;
+    width: min(1200px, 100vw);
+    transform: translateX(-50%);
+    height: max-content;
+    left: 50%;
+    bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.content h1{
+    font-family: 'ICA Rubrik', sans-serif;
+    font-size: 13rem;
+    color: rgb(49, 49, 66);
+    position: relative;
+    top: 50px;
+}
+
+.content .author{
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-top: 70px;
+}
+.container .content .back{
+    background-image: url(assests/model.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    margin-left: 30%;
+    z-index: 0;
+}
