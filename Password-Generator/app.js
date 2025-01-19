@@ -19,11 +19,12 @@ function passGenerate() {
         retVal = "";
 
     for (let i = 0; i < length; ++i) {
-        retVal += charSet.charAt(Math.floor(Math.random() * charSet.length)); 
+        retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
     }
 
-    showPass.textContent = retVal; // Show password on the webpage
+    showPass.textContent = retVal;
+    console.clear()
+    console.log(retVal);
     return retVal;
 }
 
-// console.log(retVal);
