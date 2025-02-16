@@ -32,8 +32,8 @@ async function getWeatherData(cityname) {
         Math.floor(data.main.temp) + "°c";
       document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
       document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
-      
-    
+
+
 
       if (data.weather[0].main == "Clouds") {
         weathericon.src = "images/clouds.png";
@@ -47,13 +47,13 @@ async function getWeatherData(cityname) {
         weathericon.src = "images/mist.png";
       }
 
-    document.querySelector(".error").style.display = "none";
-    document.querySelector(".weather").style.display = "block";
+      document.querySelector(".error").style.display = "none";
+      document.querySelector(".weather").style.display = "block";
 
-      
+
     }
   } catch (err) {
     // console.log(err);
-    
+
   }
 }
