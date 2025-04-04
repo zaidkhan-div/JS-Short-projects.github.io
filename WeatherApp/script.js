@@ -14,6 +14,7 @@ search.addEventListener("click", function (e) {
 });
 
 async function getWeatherData(cityname) {
+
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=metric`
@@ -28,8 +29,7 @@ async function getWeatherData(cityname) {
       // console.log("Weather Condition:", data.weather[0].main);
 
       weatherdata.querySelector(".city").innerHTML = data.name;
-      document.querySelector(".temp").innerHTML =
-        Math.floor(data.main.temp) + "°c";
+      document.querySelector(".temp").innerHTML = Math.floor(data.main.temp) + "°c";
       document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
       document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
